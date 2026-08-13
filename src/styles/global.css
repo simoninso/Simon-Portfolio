@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  --page-bg: #0f172a;
+  --card-bg: #1e293b;
+  --input-bg: #334155;
+  --fg: #f8fafc;
+  --muted: #94a3b8;
+  --border: #475569;
+  --accent: #a855f7;
+  --accent-secondary: #38bdf8;
+  --accent-fg: #ffffff;
+}
+
+html.light {
+  --page-bg: #faf8f5;
+  --card-bg: #ffffff;
+  --input-bg: #f1f5f9;
+  --fg: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --accent: #9333ea;
+  --accent-secondary: #0ea5e9;
+  --accent-fg: #ffffff;
+}
+
+@theme {
+  --color-page: var(--page-bg);
+  --color-card: var(--card-bg);
+  --color-input: var(--input-bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-fg: var(--accent-fg);
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, monospace;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+body {
+  background-color: var(--page-bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.font-display {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.hero-glow {
+  background: radial-gradient(circle at 70% 30%, color-mix(in srgb, var(--accent) 25%, transparent), transparent 55%);
+}
+
+.input-field {
+  @apply w-full bg-input border border-border rounded-xl px-4 py-3 text-fg placeholder:text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/25 transition-all duration-200;
+}
+
+.page-enter {
+  animation: page-enter 0.45s ease-out forwards;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.7s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+  opacity: 0;
+  animation: fade-in 0.7s ease-out 0.2s forwards;
+}
+
+.animate-fade-in-delay-2 {
+  opacity: 0;
+  animation: fade-in 0.7s ease-out 0.4s forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--page-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
