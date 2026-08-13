@@ -10,7 +10,6 @@ Tech Stack
 - **React Router** — page navigation
 - **clsx** + **tailwind-merge** — `cn()` utility for Tailwind classes
 
-## How Simon Built This Portfolio
 
 ### Step 1 Project setup
 
